@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PaperFire.cs" />
     <Compile Include="Assets\Scripts\Office\AnswerQuestion.cs" />
     <Compile Include="Assets\Scripts\Office\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\Office\HandController.cs" />

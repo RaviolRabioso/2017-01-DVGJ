@@ -9,12 +9,14 @@ public class HandController : MonoBehaviour {
     public GameObject seal;
     public GameObject tintParticleSystem;
     public GameObject sealPlaced;
+    public GameObject hojaVoladora;
 
     private bool _turnOnLight;
     private int _hasTint;
     private Vector3 _mousePosition;
     private bool _movingSeal;
     private bool _removeWhenUp;
+    private float _timeSealOut;
 
 	void Start () {
         _hasTint = 0;
@@ -26,22 +28,29 @@ public class HandController : MonoBehaviour {
         // Updates the position of the mouse on the desk
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit, layerMaskBase))
+        if (Physics.Raycast(ray, out hit, layerMaskBase))
         {
             _mousePosition = hit.point;
         }
-
+       
         //Check input
         if(Input.GetMouseButtonDown(0))
             PressClick();
 
+        _timeSealOut -= Time.deltaTime;
+
         //If needed, moves the seal
-        if(_movingSeal)
+        if (_timeSealOut > 0)
         {
-            seal.transform.position = _mousePosition + Vector3.up * 0.7f;
+            seal.transform.position = Vector3.Lerp(seal.transform.position, new Vector3(1f + 0.67f, 0.82f - 0.89f, -4.52f + 3.76f), 3 * Time.deltaTime);
+        }
+        else if (_movingSeal)
+        {
+            seal.transform.position = Vector3.Lerp(seal.transform.position, _mousePosition + Vector3.up * 0.7f, 10 * Time.deltaTime);
             seal.transform.forward = Vector3.up;
         }
-	}
+
+    }
 
     /// <summary>
     /// Called when user makes left click.
@@ -70,6 +79,7 @@ public class HandController : MonoBehaviour {
             if (_removeWhenUp)
             {
                 _removeWhenUp = false;
+                _timeSealOut = 3;
                 Invoke("RemoveAfterTimeSeals", 1);
             }
         }
@@ -77,6 +87,7 @@ public class HandController : MonoBehaviour {
 
     private void RemoveAfterTimeSeals()
     {
+        Instantiate(hojaVoladora);
         var tints = FindObjectsOfType<SealPlacedController>();
         for (int i = tints.Length - 1; i >= 0; i--)
         {
