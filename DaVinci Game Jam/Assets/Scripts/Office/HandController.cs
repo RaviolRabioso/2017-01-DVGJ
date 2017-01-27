@@ -7,12 +7,19 @@ public class HandController : MonoBehaviour {
     public LayerMask layerMaskBase;
     public LayerMask layerMaskSeal;
     public GameObject seal;
+    public GameObject tintParticleSystem;
+    public GameObject sealPlaced;
 
+    private bool _turnOnLight;
+    private int _hasTint;
     private Vector3 _mousePosition;
     private bool _movingSeal;
+    private bool _removeWhenUp;
 
 	void Start () {
-		
+        _hasTint = 0;
+        _turnOnLight = false;
+        _removeWhenUp = false;
 	}
 	
 	void Update () {
@@ -54,7 +61,26 @@ public class HandController : MonoBehaviour {
                 {
                     ActivateSeal(true);
                 }
+                else if(col[i].GetComponent<LightController>() != null)
+                {
+                    col[i].GetComponent<LightController>().Turn(_turnOnLight);
+                    _turnOnLight = !_turnOnLight;
+                }
             }
+            if (_removeWhenUp)
+            {
+                _removeWhenUp = false;
+                Invoke("RemoveAfterTimeSeals", 1);
+            }
+        }
+    }
+
+    private void RemoveAfterTimeSeals()
+    {
+        var tints = FindObjectsOfType<SealPlacedController>();
+        for (int i = tints.Length - 1; i >= 0; i--)
+        {
+            tints[i].DefuseIfPaper();
         }
     }
 
@@ -69,6 +95,39 @@ public class HandController : MonoBehaviour {
             seal.GetComponent<Rigidbody>().isKinematic = true;
         else
             seal.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    public void ChargeTint()
+    {
+        _hasTint = 3;
+        Instantiate(tintParticleSystem).transform.position = _mousePosition;
+    }
+
+    public void UseTint()
+    {
+        if (_hasTint > 0)
+        {
+            _hasTint--;
+            Instantiate(tintParticleSystem).transform.position = _mousePosition + Vector3.up * 0.05f;
+            Instantiate(sealPlaced).transform.position = new Vector3(seal.transform.position.x, sealPlaced.transform.position.y, seal.transform.position.z);
+        }
+    }
+
+    public void TryAnswer(AnswerQuestion.Answer answer)
+    {
+        if (_hasTint > 0)
+        {
+            switch (answer)
+            {
+                case AnswerQuestion.Answer.Left:
+                    break;
+                case AnswerQuestion.Answer.Right:
+                    break;
+                case AnswerQuestion.Answer.Neutral:
+                    break;
+            }
+            _removeWhenUp = true;
+        }
     }
 
     void OnDrawGizmos()
