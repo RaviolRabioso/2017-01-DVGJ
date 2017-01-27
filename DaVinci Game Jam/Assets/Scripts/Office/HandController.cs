@@ -53,7 +53,6 @@ public class HandController : MonoBehaviour {
                 if (col[i] == seal.GetComponent<Collider>())
                 {
                     ActivateSeal(true);
-                    
                 }
             }
         }
@@ -67,13 +66,9 @@ public class HandController : MonoBehaviour {
     {
         _movingSeal = value;
         if (value)
-        {
-            
-        }
+            seal.GetComponent<Rigidbody>().isKinematic = true;
         else
-        {
-
-        }
+            seal.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void OnDrawGizmos()
