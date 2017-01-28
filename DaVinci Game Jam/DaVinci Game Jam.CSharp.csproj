@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\GameData\Question.cs" />
     <Compile Include="Assets\Scripts\GameData\ShitterController.cs" />
     <Compile Include="Assets\Scripts\GameData\iTween.cs" />
+    <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
     <Compile Include="Assets\Scripts\Office\AnswerQuestion.cs" />
     <Compile Include="Assets\Scripts\Office\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\Office\HandController.cs" />
