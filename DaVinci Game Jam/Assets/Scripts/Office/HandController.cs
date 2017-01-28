@@ -120,7 +120,7 @@ public class HandController : MonoBehaviour {
         {
             _hasTint--;
             Instantiate(tintParticleSystem).transform.position = _mousePosition + Vector3.up * 0.05f;
-            Instantiate(sealPlaced).transform.position = new Vector3(seal.transform.position.x, sealPlaced.transform.position.y, seal.transform.position.z);
+            Instantiate(sealPlaced).transform.position = new Vector3(seal.transform.position.x, sealPlaced.transform.position.y + 0.1f, seal.transform.position.z);
         }
     }
 
