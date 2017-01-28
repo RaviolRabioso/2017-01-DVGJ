@@ -45,10 +45,42 @@ public class GameController : MonoBehaviour
 		}
 
 		_currentQuestion = q;
-		question.text = q.question;
-		rightAnswer.text = q.rightAnswer.text;
-		leftAnswer.text = q.leftAnswer.text;
-		pussyAnswer.text = q.pussyAnswer.text;
+
+
+
+		question.text = "";//q.question;
+		rightAnswer.text = "<color='red'>A </color>- " ;//+ q.rightAnswer.text;
+		leftAnswer.text = "<color='blue'>B </color>- ";// + q.leftAnswer.text;
+		pussyAnswer.text = "<color='green'>C </color>- ";// + q.pussyAnswer.text;
+
+		StartCoroutine (DisplayTexts());
+
+	}
+
+	IEnumerator	DisplayTexts()
+	{
+		int i = 0;
+		while (i < _currentQuestion.question.Length) 
+		{
+			question.text += _currentQuestion.question[i];
+			i++;
+			yield return new WaitForSeconds (0.02f);
+		}
+
+		StartCoroutine (DisplayAnswer(rightAnswer, _currentQuestion.rightAnswer.text));
+		StartCoroutine (DisplayAnswer(leftAnswer, _currentQuestion.leftAnswer.text));
+		StartCoroutine (DisplayAnswer(pussyAnswer, _currentQuestion.pussyAnswer.text));
+	}
+
+	IEnumerator	DisplayAnswer(Text container, string finalText)
+	{
+		int i = 0;
+		while (i < finalText.Length) 
+		{
+			container.text += finalText[i];
+			i++;
+			yield return new WaitForSeconds (0.02f);
+		}
 	}
 
 	public void SelectRightAnswer()

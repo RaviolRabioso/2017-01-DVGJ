@@ -28,7 +28,7 @@ public class GameData
 	public void SortQuestions()
 	{
 		_questions = new List<Question> ();
-		_questions.Add(	new Question(	"Bienvenido/a <b><color='yellow'>" + userName + "</color></b>, usted es el nuevo presidente de la Nación",
+		_questions.Add(	new Question(	"Bienvenido/a " + userName + ", usted es el nuevo presidente de la Nación",
 										new Answer("LIDER SUPREMO querras decir...", 1, -1, 1, -1, -1),
 										new Answer("Y lo seré siempre que los compañeros me apoyen.", 2, -1, -1, 1, 1),
 										new Answer("Em... supongo.", 1, -1, 1, 0, 0)));
