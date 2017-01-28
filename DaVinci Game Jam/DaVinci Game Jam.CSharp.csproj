@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\GameData\GameController.cs" />
     <Compile Include="Assets\Scripts\GameData\GameData.cs" />
     <Compile Include="Assets\Scripts\GameData\Question.cs" />
+    <Compile Include="Assets\Scripts\GameData\ShitterController.cs" />
     <Compile Include="Assets\Scripts\GameData\iTween.cs" />
     <Compile Include="Assets\Scripts\Office\AnswerQuestion.cs" />
     <Compile Include="Assets\Scripts\Office\DestroyAfterTime.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Shaders\PixelateFX.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Art\Fonts\VT323\OFL.txt" />
     <None Include="Assets\Shaders\Pixelate Effect\PixelateEffect.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
