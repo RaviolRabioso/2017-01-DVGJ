@@ -131,10 +131,13 @@ public class HandController : MonoBehaviour {
             switch (answer)
             {
                 case AnswerQuestion.Answer.Left:
+                    FindObjectOfType<GameController>().SelectLeftAnswer();
                     break;
                 case AnswerQuestion.Answer.Right:
+                    FindObjectOfType<GameController>().SelectRightAnswer();
                     break;
                 case AnswerQuestion.Answer.Neutral:
+                    FindObjectOfType<GameController>().SelectPussyAnswer();
                     break;
             }
             _removeWhenUp = true;

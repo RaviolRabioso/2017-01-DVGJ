@@ -119,12 +119,12 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Alpha1))
+		/*if (Input.GetKeyDown (KeyCode.Alpha1))
 			SelectRightAnswer ();
 		if (Input.GetKeyDown (KeyCode.Alpha2))
 			SelectLeftAnswer ();
 		if (Input.GetKeyDown (KeyCode.Alpha3))
-			SelectPussyAnswer ();
+			SelectPussyAnswer ();*/
 		if (Input.GetKeyDown (KeyCode.R)) 
 			StartGame ();
 	}
