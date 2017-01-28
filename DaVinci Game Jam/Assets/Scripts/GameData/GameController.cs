@@ -12,6 +12,10 @@ public class GameController : MonoBehaviour
 	public Text leftAnswer;
 	public Text pussyAnswer;
 
+	public Animator rightAnswerAnim;
+	public Animator leftAnswerAnim;
+	public Animator pussyAnswerAnim;
+
 	public Image poorPeopleBar;
 	public Image richPeopleBar;
 	public Image economyBar;
@@ -38,6 +42,12 @@ public class GameController : MonoBehaviour
 
 	public void ShowQuestion(Question q)
 	{
+		if (q == null) 
+		{
+			print ("GAME OVER");
+			return;
+		}
+
 		_currentQuestion = q;
 		question.text = q.question;
 		rightAnswer.text = q.rightAnswer.text;
@@ -50,6 +60,7 @@ public class GameController : MonoBehaviour
 		_gameData.rightLevel++;
 		_gameData.UpdateStats (_currentQuestion.rightAnswer);
 		UpdateBars ();
+		ShowQuestion (_gameData.getNextQuestion ());
 	}
 
 	public void SelectLeftAnswer()
@@ -57,6 +68,7 @@ public class GameController : MonoBehaviour
 		_gameData.leftLevel++;
 		_gameData.UpdateStats (_currentQuestion.leftAnswer);
 		UpdateBars ();
+		ShowQuestion (_gameData.getNextQuestion ());
 	}
 
 	public void SelectPussyAnswer()
@@ -64,6 +76,23 @@ public class GameController : MonoBehaviour
 		_gameData.pussyLevel++;
 		_gameData.UpdateStats (_currentQuestion.pussyAnswer);
 		UpdateBars ();
+		ShowQuestion (_gameData.getNextQuestion ());
+	}
+
+	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de ZURDO llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
+	public void ShowLeftyDialog(bool show)
+	{
+		leftAnswerAnim.SetTrigger (show ? "show" : "hide");
+	}
+	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de GORILA llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
+	public void ShowRightDialog(bool show)
+	{
+		rightAnswerAnim.SetTrigger (show ? "show" : "hide");
+	}
+	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de CAGON llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
+	public void ShowPussyDialog(bool show)
+	{
+		pussyAnswerAnim.SetTrigger (show ? "show" : "hide");
 	}
 
 	void UpdateBars()
@@ -116,4 +145,9 @@ public class GameController : MonoBehaviour
 		mediaBar.fillAmount = f;
 		mediaBar.color = gradient.Evaluate (f);
 	}
+
+
+	static GameController _instance;
+	public static GameController Instance	{	get{ return _instance;	}	}
+	void Awake()	{	_instance = this;	}
 }
