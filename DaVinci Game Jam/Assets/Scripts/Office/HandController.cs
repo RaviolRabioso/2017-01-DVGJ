@@ -10,6 +10,7 @@ public class HandController : MonoBehaviour {
     public GameObject tintParticleSystem;
     public GameObject sealPlaced;
     public GameObject hojaVoladora;
+    public AudioSource sealSound;
 
     private bool _turnOnLight;
     private int _hasTint;
@@ -111,11 +112,13 @@ public class HandController : MonoBehaviour {
     public void ChargeTint()
     {
         _hasTint = 3;
+        sealSound.Play();
         Instantiate(tintParticleSystem).transform.position = _mousePosition;
     }
 
     public void UseTint()
     {
+        sealSound.Play();
         if (_hasTint > 0)
         {
             _hasTint--;
