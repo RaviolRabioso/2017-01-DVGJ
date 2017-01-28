@@ -7,7 +7,8 @@ public class MenuController : MonoBehaviour {
 
 	public void Play()
     {
-        SceneManager.LoadScene("Office");
+		SceneManager.LoadScene("Office");
+		SceneManager.LoadScene("UI", LoadSceneMode.Additive);
     }
 
     public void LoadLegacy()
