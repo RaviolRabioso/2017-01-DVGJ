@@ -12,10 +12,6 @@ public class GameController : MonoBehaviour
 	public Text leftAnswer;
 	public Text pussyAnswer;
 
-	public Animator rightAnswerAnim;
-	public Animator leftAnswerAnim;
-	public Animator pussyAnswerAnim;
-
 	public Image poorPeopleBar;
 	public Image richPeopleBar;
 	public Image economyBar;
@@ -79,21 +75,6 @@ public class GameController : MonoBehaviour
 		ShowQuestion (_gameData.getNextQuestion ());
 	}
 
-	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de ZURDO llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
-	public void ShowLeftyDialog(bool show)
-	{
-		leftAnswerAnim.SetTrigger (show ? "show" : "hide");
-	}
-	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de GORILA llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
-	public void ShowRightDialog(bool show)
-	{
-		rightAnswerAnim.SetTrigger (show ? "show" : "hide");
-	}
-	//TODO: FACU -> Cuando pasen el mouse entre o salga del trigger de CAGON llama a esto. Cuando se ponga el sello oculta todo menos la respuesta dada y mantenelo asi unos segundos (para que veas que pusiste).
-	public void ShowPussyDialog(bool show)
-	{
-		pussyAnswerAnim.SetTrigger (show ? "show" : "hide");
-	}
 
 	void UpdateBars()
 	{
