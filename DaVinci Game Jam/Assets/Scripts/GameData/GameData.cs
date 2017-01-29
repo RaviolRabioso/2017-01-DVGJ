@@ -25,7 +25,7 @@ public class GameData
 	List<Question> _questions;
 
     private bool hasTakenFirst = false;
-	public string username = "HITLER" ;
+	public static string username = "HITLER" ;
 
 
 
