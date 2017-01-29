@@ -5,19 +5,16 @@ using UnityEngine;
 public class ShitterController : MonoBehaviour 
 {
 	public Transform display;
-	public GameObject[] panels;
+	public ShitMsg[] panels;
 	public Transform initialPos;
 	public Transform onDisplayPos;
 	int _recent = -1;
 
-	void Update()
+	public void Push(string msg)
 	{
-		if(Input.GetKeyDown(KeyCode.Space))
-			Push ();
-	}
-
-	void Push()
-	{
+		if (string.IsNullOrEmpty (msg))
+			return;
+		
 		_recent++;
 
 		if (_recent == panels.Length)
@@ -34,10 +31,10 @@ public class ShitterController : MonoBehaviour
 
 		panels [_recent].transform.SetSiblingIndex (display.childCount - 2);
 		StartCoroutine (MoveMsg ((RectTransform)panels [_recent].transform, initialPos.position, onDisplayPos.position));
+		panels [_recent].Fill (msg);
 
 
 
-		print ("msg pushed");
 	}
 
 	IEnumerator MoveMsg(RectTransform t, Vector3 initialPos,Vector3 finalPos)

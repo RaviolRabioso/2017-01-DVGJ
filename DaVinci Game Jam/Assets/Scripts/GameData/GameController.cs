@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
 	GameData _gameData;
 
+	public ShitterController shitter;
 	public Text question;
 	public Text rightAnswer;
 	public Text leftAnswer;
@@ -105,6 +106,7 @@ public class GameController : MonoBehaviour
 		_gameData.rightLevel++;
 		_gameData.UpdateStats (_currentQuestion.rightAnswer);
 		UpdateBars ();
+		shitter.Push (_currentQuestion.rightAnswer.customMsg);
         if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion());
 	}
 
@@ -113,6 +115,7 @@ public class GameController : MonoBehaviour
 		_gameData.leftLevel++;
 		_gameData.UpdateStats (_currentQuestion.leftAnswer);
 		UpdateBars ();
+		shitter.Push (_currentQuestion.leftAnswer.customMsg);
         if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion ());
 	}
 
@@ -121,6 +124,7 @@ public class GameController : MonoBehaviour
 		_gameData.pussyLevel++;
 		_gameData.UpdateStats (_currentQuestion.pussyAnswer);
 		UpdateBars ();
+		shitter.Push (_currentQuestion.pussyAnswer.customMsg);
         if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion ());
 	}
 

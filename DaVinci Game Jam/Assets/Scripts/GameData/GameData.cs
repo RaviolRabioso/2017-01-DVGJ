@@ -25,24 +25,27 @@ public class GameData
 	List<Question> _questions;
 
     private bool hasTakenFirst = false;
+	public string username = "HITLER" ;
+
+
 
 	public void SortQuestions()
 	{
 		_questions = new List<Question> ();
-		_questions.Add(	new Question(	"Bienvenido señor, usted es el nuevo presidente de la Nación",
-										new Answer("LIDER SUPREMO querras decir...", 1, -1, 1, -1, -1),
-										new Answer("Y lo seré siempre que los compañeros me apoyen.", 2, -1, -1, 1, 1),
-										new Answer("Em... supongo.", 1, -1, 1, 0, 0)));
+		_questions.Add(	new Question(	"Bienvenido/a " + username + ", usted es el nuevo presidente de la Nación",
+			new Answer("LIDER SUPREMO querras decir...", 1, -1, 1, -1, -1, "n|" + GetUserNameForShit()+ " es el nuevo Lider de la Nacion."),
+			new Answer("Y lo seré siempre que los compañeros me apoyen.", 2, -1, -1, 1, 1, "p|Vamo' ameo, "+GetUserNameForShit()+" es re peola."),
+			new Answer("Em... supongo.", 1, -1, 1, 0, 0, "r|"+GetUserNameForShit()+" pecho frio.")));
 
-		_questions.Add(	new Question(	"Un fiscal encuentró información que podría vincularte a algo ilegal.",
-										new Answer("Hacer que se tropiece con una bala.", -2, -2, 0, 1, -3),
+		_questions.Add(	new Question(	"Un fiscal encontró información que podría vincularte a algo ilegal.",
+										new Answer("Hacer que se tropiece con una bala.", -2, -2, 0, 1, -3, "n|El fiscal #Prisman habria sido picado por una bala. Ampliaremos."),
 										new Answer("Filtrar video porno del fiscal.", 2, 0, 0, 0, 3),
 										new Answer("Meh, no pienso darle bola.", 0, 0, 0, 0, 1)));
 
-        _questions.Add(new Question("La multinacional Morfato te quiere dejar 1.000.000.000 dolares a cambio de seguir cuidando los campos", 
-            new Answer("Que se cague el campo!", -3, 3, 2, 1, 0), 
-            new Answer("Para nada, voy a denunciarlos!", 3, 1, -4, -1, 2), 
-            new Answer("Paso y me hago el boludo", 0, 0, -2, 0, -1)));
+        _questions.Add(new Question(	"La multinacional Morfato te quiere dejar 1.000.000.000 dolares a cambio de seguir cuidando los campos", 
+							            new Answer("Que se cague el campo!", -3, 3, 2, 1, 0), 
+							            new Answer("Para nada, voy a denunciarlos!", 3, 1, -4, -1, 2), 
+							            new Answer("Paso y me hago el boludo", 0, 0, -2, 0, -1)));
 
         _questions.Add(new Question("El Gremio reclama una mejora salarial para los trabajadores",
             new Answer("Laburen vagos!", -3, 3, 1, 0, 2),
@@ -138,6 +141,11 @@ public class GameData
             new Answer("Pues trabajando, obviamente!", -2, 1, 2, -1, -2),
             new Answer("Saldremos a las calles a festejar durante toda la semana", 3, -2, -3, 0, 3),
             new Answer("Tendrán el día libre", 1, -1, -1, 0, 0)));
+	}
+
+	public string GetUserNameForShit()
+	{
+		return "<color='blue'>#" + username + "</color>";
 	}
 
 	public Question getNextQuestion()
