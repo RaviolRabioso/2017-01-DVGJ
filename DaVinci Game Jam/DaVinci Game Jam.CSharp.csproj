@@ -75,12 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PaperFire.cs" />
-    <Compile Include="Assets\ResultManager.cs" />
     <Compile Include="Assets\Scripts\GameData\Answer.cs" />
     <Compile Include="Assets\Scripts\GameData\GameController.cs" />
     <Compile Include="Assets\Scripts\GameData\GameData.cs" />
     <Compile Include="Assets\Scripts\GameData\Question.cs" />
+    <Compile Include="Assets\Scripts\GameData\ShitMsg.cs" />
     <Compile Include="Assets\Scripts\GameData\ShitterController.cs" />
     <Compile Include="Assets\Scripts\GameData\iTween.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
@@ -92,8 +91,11 @@
     <Compile Include="Assets\Scripts\Office\LightController.cs" />
     <Compile Include="Assets\Scripts\Office\SealPlacedController.cs" />
     <Compile Include="Assets\Scripts\Office\TriggerTintEffect.cs" />
+    <Compile Include="Assets\Scripts\PanelController.cs" />
+    <Compile Include="Assets\Scripts\PaperFire.cs" />
+    <Compile Include="Assets\Scripts\ResultManager.cs" />
+    <Compile Include="Assets\Scripts\TutorialController.cs" />
     <Compile Include="Assets\Shaders\PixelateFX.cs" />
-    <Compile Include="Assets\TutorialController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art\Fonts\VT323\OFL.txt" />

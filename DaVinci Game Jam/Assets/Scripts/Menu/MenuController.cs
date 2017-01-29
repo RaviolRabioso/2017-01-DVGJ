@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
-    
+
+    public GameObject namePanel;
 
 	public void Play()
     {
-		SceneManager.LoadScene("Office");
-		SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        namePanel.SetActive(true);
+		/*SceneManager.LoadScene("Office");
+		SceneManager.LoadScene("UI", LoadSceneMode.Additive);*/
     }
 
     public void LoadLegacy()
