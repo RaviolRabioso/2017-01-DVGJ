@@ -43,7 +43,6 @@ public class GameData
 
 	public void LoadData()
 	{
-        
 		var legacyData = File.ReadAllText ("Save/legacy.tuvieja").Split('|');
 
 		poorPeopleHappiness 	= int.Parse(legacyData [1]);
@@ -53,28 +52,21 @@ public class GameData
 		mediaHappiness 			= int.Parse(legacyData [5]);
 
 		if(poorPeopleHappiness <= 2)
-		{
 			poorPeopleHappiness += 2;
-			GameController.Instance.shitter.Push ("p|Aca con los pibe jugando fulbo con la cabeza de <color='red'>#" + legacyData [0] + "</color>.");
-		}
 
 		if(richPeopleHappiness <= 2)
-		{
 			richPeopleHappiness += 2;
-			GameController.Instance.shitter.Push ("r|Al fin se fue el idiota de <color='red'>#" + legacyData [0] + "</color>. "+ GetUserNameForShit() + " te vamos a vigilar.");
-		}
 
 		if(economy <= 2)
-		{
 			economy += 2;
-			GameController.Instance.shitter.Push ("e|Finalizado el pesimo mandato de <color='red'>#" + legacyData [0] + "</color>, la economia estara espectante a "+ GetUserNameForShit() + ".");
-		}
 
 		if (internationalAffairs <= 2)
 			internationalAffairs += 2;
 
 		if (mediaHappiness <= 2)
 			internationalAffairs += 2;
+
+		GameController.Instance.shitter.Push ("n|Finalizado el pesimo mandato de <color='red'>#" + legacyData [0] + "</color>, la Nacion recibe a "+ GetUserNameForShit() + ".");
 	}
 
 	public void SortQuestions()

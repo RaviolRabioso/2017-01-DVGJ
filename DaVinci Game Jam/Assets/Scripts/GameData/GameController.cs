@@ -41,6 +41,9 @@ public class GameController : MonoBehaviour
 		_gameData = new GameData ();
 		_gameData.SortQuestions ();
 
+		if (loadLegacy)
+			LoadLegacy ();
+
 		UpdateBars ();
 		ShowQuestion (_gameData.getNextQuestion ());
 	}
