@@ -43,6 +43,7 @@ public class GameData
 
 	public void LoadData()
 	{
+        
 		var legacyData = File.ReadAllText ("Save/legacy.tuvieja").Split('|');
 
 		poorPeopleHappiness 	= int.Parse(legacyData [1]);
