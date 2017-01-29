@@ -75,74 +75,74 @@ public class GameData
 										new Answer("Dejen que protesten, me voy de vacaciones.", -1, 0, -1, -1, 0, "n|"+GetUserNameForShit()+" se fractura un tobillo al saltar la soga en sus vacaciones. #Ampliaremos")));
 
 		_questions.Add(	new Question(	"Transnacionales se ofrecen a invertir un buen monto de millones para usted y sus allegados, siempre en cuanto apruebe algunos despidos...",
-										new Answer("Hoy invito yo!", -2, 2, 1, -2, -1),
-										new Answer("Muestren al mundo el pedido infame de esta transnacional imperialista.", 2, -3, -1, 0, 3),
-										new Answer("A mi no me metan en esto", -1, -1, -1, 0, 0)));
+										new Answer("Hoy invito yo!", -2, 2, 1, -2, -1, "r|Acá de joda con "+GetUserNameForShit()),
+										new Answer("Muestren al mundo el pedido infame de esta transnacional imperialista.", 2, -3, -1, 0, 3, "n|"+GetUserNameForShit()+" muestra al mundo un infame plan de despidos"),
+										new Answer("A mi no me metan en esto", -1, -1, -1, 0, 0, "e|No creemos que "+GetUserNameForShit()+" sea el indicado para los negocios")));
 
 		_questions.Add(	new Question(	"Los chinos nos traen estas maravillas de afuera. Es mi quinta adquisición del mismo ya que los últimos 4 se rompieron...",
-										new Answer("¡Que buena es la globalización, liberen las importaciones!", -2, 0, -2, 3, 0),
-										new Answer("Que no pase un producto más. Debemos proteger nuestra industria.", 1, -2, 0, -2, 0),
-										new Answer("Que pasen solo si pagan impuestos razonables", -1, -1, 1, 1, 0)));
+										new Answer("¡Que buena es la globalización, liberen las importaciones!", -2, 0, -2, 3, 0, "r|Ya probaron el nuevo Sorny?"),
+										new Answer("Que no pase un producto más. Debemos proteger nuestra industria.", 1, -2, 0, -2, 0, "r|Viajando a Maeeeameee a comprar gracias al ortiva de "+GetUserNameForShit()),
+										new Answer("Que pasen solo si pagan impuestos razonables", -1, -1, 1, 1, 0, "p|Con estos impuestos las naik son demasiado caras!")));
 
         _questions.Add(new Question("Una radio local está difamando injúrias sobre varios líderes de nuestro partido",
-            new Answer("Esperemos que puedan seguir expresándose desde la cárcel", 1, 1, 0, -3, -3),
-            new Answer("Tienen derecho a expresarse si lo desean", -2, -2, 0, 0, 1),
-            new Answer("Bueno, podemos publicar un par de tweets desmintiendo, no?", -1, -1, 0, -1, 0)));
+            new Answer("Esperemos que puedan seguir expresándose desde la cárcel", 1, 1, 0, -3, -3, "i|Cerrado hasta nuevo aviso"),
+            new Answer("Tienen derecho a expresarse si lo desean", -2, -2, 0, 0, 1, "p|Como dice el diario Garquin, peor es ser "+GetUserNameForShit()),
+            new Answer("Bueno, podemos publicar un par de tweets desmintiendo, no?", -1, -1, 0, -1, 0, "e|Intento desesperado de "+GetUserNameForShit()+" por desmentirnos")));
 
         _questions.Add(new Question("Nuestros jóvenes de clase baja exigen una educación de calidad y gratuita",
-            new Answer("Pueden aprender manualidades en los talleres de la cárcel", -3, 1, 1, -1, -1),
-            new Answer("Que se abran las universidades necesarias para resolver este problema", 2, -2, -3, 1, 1),
-            new Answer("Supongo que podemos dar un par de becas para privadas", -1, -1, -1, 0, 0)));
+            new Answer("Pueden aprender manualidades en los talleres de la cárcel", -3, 1, 1, -1, -1, "r|Me parece bien que se les de trabajo en las cárceles"),
+            new Answer("Que se abran las universidades necesarias para resolver este problema", 2, -2, -3, 1, 1, "r|Educación gratuita? Que sigue? Trabajo digno?"),
+            new Answer("Supongo que podemos dar un par de becas para privadas", -1, -1, -1, 0, 0, "p|Acá compitiendo por la beca!!! :P :P xxXXxx")));
 
         _questions.Add(new Question("Podemos ser los representates del próximo mundial! Tan sólo debemos aceptar un par de restricciones y pagar una suma",
-            new Answer("Siempre quise ver a mi equipo subcampeón como local. Que se haga lo necesario", 2, 1, -3, 2, 3),
-            new Answer("Ninguna asociación mundial nos va a decir que debemos hacer", -2, -1, 0, 0, -2),
-            new Answer("De acuerdo, pero intentemos que sus restricciones no sean graves ni destruyan la economía", 1, 0, -1, -2, -1)));
+            new Answer("Siempre quise ver a mi equipo subcampeón como local. Que se haga lo necesario", 2, 1, -3, 2, 3, "i|"+GetUserNameForShit()+" organizará el siguiente mundial!"),
+            new Answer("Ninguna asociación mundial nos va a decir que debemos hacer", -2, -1, 0, 0, -2, "p|De que sirve salir subcampeón si no los puedo ver?"),
+            new Answer("De acuerdo, pero intentemos que sus restricciones no sean graves ni destruyan la economía", 1, 0, -1, -2, -1, "i|El peor mundial jamás visto será organizado por "+GetUserNameForShit())));
 
         _questions.Add(new Question("Una cadena prestigiosa de comida rápida se ofrece a pagarnos un dineral si les permitimos explotar al máximo a nuestra población más precaria",
-            new Answer("Dinero y comida deliciosamente rápida para la gente importante. Que no se diga más!", -2, 1, 2, 1, 0),
-            new Answer("Comida chatarra y gente precarizada? Sobre mi cadáver marxista", 1, -1, 0, -1, 0),
-            new Answer("Podemos aceptarlo, pero asegurémonos de pagar la diferencia para que el trabajo sea aceptable", -1, 1, 0, 1, 0)));
+            new Answer("Dinero y comida deliciosamente rápida para la gente importante. Que no se diga más!", -2, 1, 2, 1, 0, "e|Es importante la comida económica"),
+            new Answer("Comida chatarra y gente precarizada? Sobre mi cadáver marxista", 1, -1, 0, -1, 0, "r|Y ahora tiene delirios de comunismo... Así no eh!"),
+            new Answer("Podemos aceptarlo, pero asegurémonos de pagar la diferencia para que el trabajo sea aceptable", -1, 1, 0, 1, 0, "p|Acá en mi nuevo empleo!!")));
 
         _questions.Add(new Question("Ayer murieron 2 personas a causa del hambre. Deberíamos hacer algo?",
-            new Answer("El hambre es para la gente que no puede costearse vivir", -3, 1, 0, -2, -1),
-            new Answer("Preparen los camiones. Saldremos a repartir pan al pueblo!", 3, -1, -2, 0, 1),
-            new Answer("Y si probamos dando cupones de descuento?, Podrían venir con un corte de pelo también", -1, 0, -1, 0, -1)));
+            new Answer("El hambre es para la gente que no puede costearse vivir", -3, 1, 0, -2, -1, "i|"+GetUserNameForShit()+" deja que su gente muera de hambre"),
+            new Answer("Preparen los camiones. Saldremos a repartir pan al pueblo!", 3, -1, -2, 0, 1, "p|Eaeaeaea comida gratis"),
+            new Answer("Y si probamos dando cupones de descuento?, Podrían venir con un corte de pelo también", -1, 0, -1, 0, -1, "p|Acá por hacerme un nuevo corte!")));
 
         _questions.Add(new Question("Una empresa altamente prestigiosa acaba de quebrar",
-            new Answer("El pobre eempresario no tiene la culpa. Que no se indemnice a nadie!", -2, 1, 1, 0, -1),
-            new Answer("Que los trabajadores formen una cooperativa y se hagan cargo de la empresa", 1, -2, 0, 0, 0),
-            new Answer("No importa la cantidad de despidos mientras se los indemnice como pide la ley", -1, -2, -1, 0, 0)));
+            new Answer("El pobre empresario no tiene la culpa. Que no se indemnice a nadie!", -2, 1, 1, 0, -1, "p|Acá sin laburo.. "+GetUserNameForShit()+" hdp!!!"),
+            new Answer("Que los trabajadores formen una cooperativa y se hagan cargo de la empresa", 1, -2, 0, 0, 0, "r|Nos dejan sin nada y se quedan con todo ;("),
+            new Answer("No importa la cantidad de despidos mientras se los indemnice como pide la ley", -1, -2, -1, 0, 0, "e|Ola de despidos trae caída en la economía")));
 
         _questions.Add(new Question("Estados Unidos nos ofrece un progrma nuclear en el país. La paga sería alta pero probablemente la población no disfrute comprar medias de a tres",
-            new Answer("La gente puede acostumbrarse a los buzos de cuatro mangas", -3, -3, 3, 1, -2),
-            new Answer("Acá dibujamos la línea. Cortaremos lazos con Estados Unidos", 0, -2, -2, -2, -2),
-            new Answer("Aceptaremos pero invertiremos suficiente en propaganda y en la seguridad de nuestros habitantes", -1, -1, -1, 1, 2)));
+            new Answer("La gente puede acostumbrarse a los buzos de cuatro mangas", -3, -3, 3, 1, -2, "r|Manejar un BWM con cuatro brazos no es tan fácil"),
+            new Answer("Acá dibujamos la línea. Cortaremos lazos con Estados Unidos", 0, -2, -2, -2, -2, "i|"+GetUserNameForShit()+" decide cortar lazos con E.E.U.U."),
+            new Answer("Aceptaremos pero invertiremos suficiente en propaganda y en la seguridad de nuestros habitantes", -1, -1, -1, 1, 2, "n| No salgan sin sus máscaras de oxígeno!")));
 
         _questions.Add(new Question("Algunos piden vacaciones pagas mientras otros dicen que cada uno se pague sus vacaciones",
-            new Answer("Cada uno debe pagarse sus vacaciones. Ya tienen suficiente con sus sueldos", -2, 1, 1, -1, -1),
-            new Answer("Que no solamente se paguen sueldos, que se paguen pasajes!", 3, -1, -3, 1, 1),
-            new Answer("Que tengan vacaciones pagadas a mitad del sueldo", -1, -1, 0, 0, 0)));
+            new Answer("Cada uno debe pagarse sus vacaciones. Ya tienen suficiente con sus sueldos", -2, 1, 1, -1, -1, "p|Acá de vacas en lo del vecino!"),
+            new Answer("Que no solamente se paguen sueldos, que se paguen pasajes!", 3, -1, -3, 1, 1, "e|Las vacaciones pagas provocan caídas en la economía"),
+            new Answer("Que tengan vacaciones pagadas a mitad del sueldo", -1, -1, 0, 0, 0, "r|Qué es esto? Un instituto privado de enseñanza terciaria?")));
 
         _questions.Add(new Question("A nuestros habitantes les gusta hacer mucho chaca chaca... pero luego exigen permisos por paternidad!",
-            new Answer("Fue su elección así como su problema controlar a sus plagas", -3, -3, 3, 0, 0),
-            new Answer("Asignaremos dinero a cada familia por cada uno de sus hijos, además de unas merecidas vacaciones pagas", 2, -1, -3, 0, 0),
-            new Answer("Con un mes de vacaciones pagas para la madre debe de ser suficiente", 0, 0, -1, 0, 0)));
+            new Answer("Fue su elección así como su problema controlar a sus plagas", -3, -3, 3, 0, 0, "r|Con la nena y sin vacaciones. Vergüenza debería darle "+GetUserNameForShit()),
+            new Answer("Asignaremos dinero a cada familia por cada uno de sus hijos, además de unas merecidas vacaciones pagas", 2, -1, -3, 0, 0, "e|Los fondos gastados en vacaciones"),
+            new Answer("Con un mes de vacaciones pagas para la madre debe de ser suficiente", 0, 0, -1, 0, 0, "i|Sin turismo por acá")));
 
         _questions.Add(new Question("Cada vez se anotan más y más niños a los colegios. Deberíamos ofrecerles alimento?",
-            new Answer("Podríamos cobrarles el alimento dentro del colegio", -2, 0, 2, 0, 0),
-            new Answer("El alimento debería ser un derecho. Comidas diarias para todos los alumnos", 2, -1, -3, 0, 0),
-            new Answer("Demasiado trabajo, que cada uno se lleve su vianda", -2, -1, 0, 0, -1)));
+            new Answer("Podríamos cobrarles el alimento dentro del colegio", -2, 0, 2, 0, 0, "e|Cobrar alimento en las escuelas impulsa la economía"),
+            new Answer("El alimento debería ser un derecho. Comidas diarias para todos los alumnos", 2, -1, -3, 0, 0, "e|Los gastos por alimento son altísimos en el país"),
+            new Answer("Demasiado trabajo, que cada uno se lleve su vianda", -2, -1, 0, 0, -1, "n|A "+GetUserNameForShit()+" no le importa el país")));
 
         _questions.Add(new Question("El populacho exige mejores condiciones en las fábricas",
-            new Answer("Que no exageren. Inhalar carbón solamente durante 14 horas laborales no debería ser problema", -3, 0, 2, -1, 0),
-            new Answer("Las fábricas deberían ser del pueblo. Que los obreros tomen el poder y decidan lo que es justo!", 3, -3, -2, -1, 1),
-            new Answer("Podríamos pedir condiciones mínimas para la jornada de 8 horas", -1, -1, -1, 0, 0)));
+            new Answer("Que no exageren. Inhalar carbón solamente durante 14 horas laborales no debería ser problema", -3, 0, 2, -1, 0, "p|Creo que no puedo respirar"),
+            new Answer("Las fábricas deberían ser del pueblo. Que los obreros tomen el poder y decidan lo que es justo!", 3, -3, -2, -1, 1, "r|Ellos no tienen educación para saber lo que es justo!"),
+            new Answer("Podríamos pedir condiciones mínimas para la jornada de 8 horas", -1, -1, -1, 0, 0, "n|Jornada máxima de 8 horas aprobada")));
 
         _questions.Add(new Question("Se acerca el día del trabajador, cómo deberíamos celebrarlo?",
-            new Answer("Pues trabajando, obviamente!", -2, 1, 2, -1, -2),
-            new Answer("Saldremos a las calles a festejar durante toda la semana", 3, -2, -3, 0, 3),
-            new Answer("Tendrán el día libre", 1, -1, -1, 0, 0)));
+            new Answer("Pues trabajando, obviamente!", -2, 1, 2, -1, -2, "n|No se celebrará el día del trabajador"),
+            new Answer("Saldremos a las calles a festejar durante toda la semana", 3, -2, -3, 0, 3, "n|Multitudinarios festejos por el día del trabajador"),
+            new Answer("Tendrán el día libre", 1, -1, -1, 0, 0, "r|Sin trabajar el día del trabajador?")));
 	}
 
 	public string GetUserNameForShit()
