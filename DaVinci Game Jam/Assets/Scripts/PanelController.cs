@@ -13,5 +13,13 @@ public class PanelController : MonoBehaviour {
         GameData.username = namee.text;
         SceneManager.LoadScene("Office");
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+
+		if (GameController.loadLegacy)
+			Invoke ("LoadLegacy", 1);	//Kids, don't do this at home...
     }
+
+	void LoadLegacy()
+	{
+		GameController.Instance.LoadLegacy ();
+	}
 }

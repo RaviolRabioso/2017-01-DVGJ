@@ -24,9 +24,16 @@ public class GameController : MonoBehaviour
     private int _totalQuestions = 12;
 	Question _currentQuestion;
 
+	public static bool loadLegacy;
+
 	void Start () 
 	{
 		StartGame ();	
+	}
+
+	public void LoadLegacy()
+	{
+		_gameData.LoadData ();
 	}
 
 	public void StartGame()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class GameData
 {
@@ -30,6 +31,50 @@ public class GameData
     public GameData()
     {
     }
+
+	public void SaveData()
+	{
+		if (!Directory.Exists ("Save/"))
+			Directory.CreateDirectory ("Save/");
+
+
+		File.WriteAllText ("Save/legacy.tuvieja", username + "|" + poorPeopleHappiness + "|" + richPeopleHappiness + "|" + economy + "|" + internationalAffairs + "|" + mediaHappiness);
+	}
+
+	public void LoadData()
+	{
+		var legacyData = File.ReadAllText ("Save/legacy.tuvieja").Split('|');
+
+		poorPeopleHappiness 	= int.Parse(legacyData [1]);
+		richPeopleHappiness  	= int.Parse(legacyData [2]);
+		economy 				= int.Parse(legacyData [3]);
+		internationalAffairs 	= int.Parse(legacyData [4]);
+		mediaHappiness 			= int.Parse(legacyData [5]);
+
+		if(poorPeopleHappiness <= 2)
+		{
+			poorPeopleHappiness += 2;
+			GameController.Instance.shitter.Push ("p|Aca con los pibe jugando fulbo con la cabeza de <color='red'>#" + legacyData [0] + "</color>.");
+		}
+
+		if(richPeopleHappiness <= 2)
+		{
+			richPeopleHappiness += 2;
+			GameController.Instance.shitter.Push ("r|Al fin se fue el idiota de <color='red'>#" + legacyData [0] + "</color>. "+ GetUserNameForShit() + " te vamos a vigilar.");
+		}
+
+		if(economy <= 2)
+		{
+			economy += 2;
+			GameController.Instance.shitter.Push ("e|Finalizado el pesimo mandato de <color='red'>#" + legacyData [0] + "</color>, la economia estara espectante a "+ GetUserNameForShit() + ".");
+		}
+
+		if (internationalAffairs <= 2)
+			internationalAffairs += 2;
+
+		if (mediaHappiness <= 2)
+			internationalAffairs += 2;
+	}
 
 	public void SortQuestions()
 	{
