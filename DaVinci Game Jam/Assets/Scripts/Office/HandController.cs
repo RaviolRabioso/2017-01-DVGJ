@@ -41,11 +41,7 @@ public class HandController : MonoBehaviour {
         if (_timeSealOut > 0)
         {
             seal.transform.position = Vector3.Lerp(seal.transform.position, new Vector3(1f + 0.67f, 0.82f - 0.89f, -4.52f + 3.76f), 3 * Time.deltaTime);
-            if (_timeSealOut < 1)
-            {
-                _hasTint++;
-                ActivateSeal(false);
-            }
+            
         }
         else if (_movingSeal)
         {
@@ -79,8 +75,8 @@ public class HandController : MonoBehaviour {
             if (_removeWhenUp)
             {
                 _removeWhenUp = false;
-                _timeSealOut = 3;
-                Invoke("RemoveAfterTimeSeals", 1);
+                _timeSealOut = 5;
+                Invoke("RemoveAfterTimeSeals", 2);
             }
         }
     }

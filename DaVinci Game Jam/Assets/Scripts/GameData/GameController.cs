@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 
 	public Gradient gradient;
 
+    private int _totalQuestions = 12;
 	Question _currentQuestion;
 
 	void Start () 
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
 
 		_currentQuestion = q;
 
+        _totalQuestions--;
 
 
 		question.text = "";//q.question;
@@ -54,7 +56,6 @@ public class GameController : MonoBehaviour
 		pussyAnswer.text = "<color='green'>C </color>- ";// + q.pussyAnswer.text;
 
 		StartCoroutine (DisplayTexts());
-
 	}
 
 	IEnumerator	DisplayTexts()
@@ -83,12 +84,28 @@ public class GameController : MonoBehaviour
 		}
 	}
 
+    private bool CheckEnd()
+    {
+        Debug.Log("Economy " + _gameData.economy + "International "+_gameData.internationalAffairs+" Poor "+_gameData.poorPeopleHappiness+" Rich "+_gameData.richPeopleHappiness+" Media "+_gameData.mediaHappiness);
+        if (_gameData.economy <= 0 || _gameData.internationalAffairs <= 0 || _gameData.poorPeopleHappiness <= 0 || _gameData.richPeopleHappiness <= 0 || _gameData.mediaHappiness <= 0)
+        {
+            FindObjectOfType<ResultManager>().ShowDefeat(_gameData);
+            return true;
+        }
+        else if (_totalQuestions == 0)
+        {
+            FindObjectOfType<ResultManager>().ShowResult(_gameData);
+            return true;
+        }
+        return false;
+    }
+
 	public void SelectRightAnswer()
 	{
 		_gameData.rightLevel++;
 		_gameData.UpdateStats (_currentQuestion.rightAnswer);
 		UpdateBars ();
-		ShowQuestion (_gameData.getNextQuestion ());
+        if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion());
 	}
 
 	public void SelectLeftAnswer()
@@ -96,7 +113,7 @@ public class GameController : MonoBehaviour
 		_gameData.leftLevel++;
 		_gameData.UpdateStats (_currentQuestion.leftAnswer);
 		UpdateBars ();
-		ShowQuestion (_gameData.getNextQuestion ());
+        if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion ());
 	}
 
 	public void SelectPussyAnswer()
@@ -104,9 +121,13 @@ public class GameController : MonoBehaviour
 		_gameData.pussyLevel++;
 		_gameData.UpdateStats (_currentQuestion.pussyAnswer);
 		UpdateBars ();
-		ShowQuestion (_gameData.getNextQuestion ());
+        if (!CheckEnd()) ShowQuestion(_gameData.getNextQuestion ());
 	}
 
+    private void CleanTexts()
+    {
+
+    }
 
 	void UpdateBars()
 	{
@@ -125,8 +146,8 @@ public class GameController : MonoBehaviour
 			SelectLeftAnswer ();
 		if (Input.GetKeyDown (KeyCode.Alpha3))
 			SelectPussyAnswer ();*/
-		if (Input.GetKeyDown (KeyCode.R)) 
-			StartGame ();
+		/*if (Input.GetKeyDown (KeyCode.R)) 
+			StartGame ();*/
 	}
 
 	void UpdatePoorPeopleBar(float f)

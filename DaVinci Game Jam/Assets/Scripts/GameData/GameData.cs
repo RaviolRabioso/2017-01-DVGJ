@@ -20,15 +20,14 @@ public class GameData
 	public int leftLevel 			= 0;
 	public int rightLevel 			= 0;
 	public int pussyLevel 			= 0;
-
-	public string userName = "Martelletti";
+    
 
 	List<Question> _questions;
 
 	public void SortQuestions()
 	{
 		_questions = new List<Question> ();
-		_questions.Add(	new Question(	"Bienvenido/a " + userName + ", usted es el nuevo presidente de la Nación",
+		_questions.Add(	new Question(	"Bienvenido señor, usted es el nuevo presidente de la Nación",
 										new Answer("LIDER SUPREMO querras decir...", 1, -1, 1, -1, -1),
 										new Answer("Y lo seré siempre que los compañeros me apoyen.", 2, -1, -1, 1, 1),
 										new Answer("Em... supongo.", 1, -1, 1, 0, 0)));
@@ -88,9 +87,9 @@ public class GameData
             new Answer("Que se abran las universidades necesarias para resolver este problema", 2, -2, -3, 1, 1),
             new Answer("Supongo que podemos dar un par de becas para privadas", -1, -1, -1, 0, 0)));
 
-        _questions.Add(new Question("Podemos ser los representates del próximo mundial! Tan sólo debemos aceptar un par de restricciones y pagar una suma un poco abultada",
+        _questions.Add(new Question("Podemos ser los representates del próximo mundial! Tan sólo debemos aceptar un par de restricciones y pagar una suma",
             new Answer("Siempre quise ver a mi equipo subcampeón como local. Que se haga lo necesario", 2, 1, -3, 2, 3),
-            new Answer("Ninguna asociación mundial nos va a decir que debemos hacer. Inventaremos nuestro propio deporte nacional. Lo llamares Bolfut", -2, -1, 0, 0, -2),
+            new Answer("Ninguna asociación mundial nos va a decir que debemos hacer", -2, -1, 0, 0, -2),
             new Answer("De acuerdo, pero intentemos que sus restricciones no sean graves ni destruyan la economía", 1, 0, -1, -2, -1)));
 
         _questions.Add(new Question("Una cadena prestigiosa de comida rápida se ofrece a pagarnos un dineral si les permitimos explotar al máximo a nuestra población más precaria",
