@@ -24,6 +24,8 @@ public class GameData
 
 	List<Question> _questions;
 
+    private bool hasTakenFirst = false;
+
 	public void SortQuestions()
 	{
 		_questions = new List<Question> ();
@@ -146,8 +148,19 @@ public class GameData
 			return null;
 		}
 
-		var q = _questions [0];
-		_questions.RemoveAt (0);
+        Question q;
+        if (!hasTakenFirst)
+        {
+            q = _questions[0];
+            _questions.RemoveAt(0);
+            hasTakenFirst = true;
+        }
+        else
+        {
+            int r = UnityEngine.Random.Range(0, _questions.Count -1);
+            q = _questions[r];
+            _questions.RemoveAt(r);
+        }
 		return q;
 	}
 
