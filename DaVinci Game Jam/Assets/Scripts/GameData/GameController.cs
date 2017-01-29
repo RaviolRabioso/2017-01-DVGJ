@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-	GameData _gameData;
+	public static GameData _gameData;
 
 	public ShitterController shitter;
 	public Text question;

@@ -49,17 +49,21 @@ public class ResultManager : MonoBehaviour {
         else if (gD.internationalAffairs <= 0)
             resultText.text = "Derrota, no te quieren ni los de afuera";
     }
-
-    private void ReturnMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
+    
     private void Activate()
     {
         panel.SetActive(false);
         resultText.gameObject.SetActive(true);
         background.SetActive(true);
-        Invoke("ReturnMenu", 5);
+    }
+
+    public void SaveLegacy()
+    {
+        GameController._gameData.SaveData();
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
