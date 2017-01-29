@@ -26,7 +26,6 @@ public class HandController : MonoBehaviour {
 	}
 	
 	void Update () {
-        // Updates the position of the mouse on the desk
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, layerMaskBase))
@@ -34,13 +33,11 @@ public class HandController : MonoBehaviour {
             _mousePosition = hit.point;
         }
        
-        //Check input
         if(Input.GetMouseButtonDown(0))
             PressClick();
 
         _timeSealOut -= Time.deltaTime;
-
-        //If needed, moves the seal
+        
         if (_timeSealOut > 0)
         {
             seal.transform.position = Vector3.Lerp(seal.transform.position, new Vector3(1f + 0.67f, 0.82f - 0.89f, -4.52f + 3.76f), 3 * Time.deltaTime);
@@ -52,10 +49,7 @@ public class HandController : MonoBehaviour {
         }
 
     }
-
-    /// <summary>
-    /// Called when user makes left click.
-    /// </summary>
+    
     private void PressClick()
     {
         if(_movingSeal)
@@ -95,22 +89,22 @@ public class HandController : MonoBehaviour {
             tints[i].DefuseIfPaper();
         }
     }
-
-    /// <summary>
-    /// Activates or desactivates the dragging of the seal.
-    /// </summary>
-    /// <param name="value">If you want to activate or desactivate</param>
+    
     private void ActivateSeal(bool value)
     {
         _movingSeal = value;
         if (value)
+        {
+            FindObjectOfType<TutorialController>().Grabs();
             seal.GetComponent<Rigidbody>().isKinematic = true;
+        }
         else
             seal.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void ChargeTint()
     {
+        FindObjectOfType<TutorialController>().Adds();
         _hasTint = 3;
         sealSound.Play();
         Instantiate(tintParticleSystem).transform.position = _mousePosition;
@@ -131,6 +125,7 @@ public class HandController : MonoBehaviour {
     {
         if (_hasTint > 0)
         {
+            FindObjectOfType<TutorialController>().Selects();
             switch (answer)
             {
                 case AnswerQuestion.Answer.Left:
